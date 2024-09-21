@@ -6,23 +6,23 @@ from math import radians
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy
 
-class thrustMasterDrive(Node):
+class thrustmaster_drive(Node):
     def __init__(self):
-        super().__init__("thrustMasterDrive_Node")
+        super().__init__("thrustMasterDrive")
         self.twist = Twist()
         
-        self.cmd_move_subscriber = self.create_subscription(Joy,"/joystick/drive", self.cmd_joy_callback, 10)
+        self.cmd_move_subscriber = self.create_subscription(Joy, "joystick", self.cmd_joy_callback, 10)
 
-        self.setTwistPub = self.create_publisher(Twist, "/drive/cmd_vel", 1)
+        self.setTwistPub = self.create_publisher(Twist, "Joystick_pub", 1)
         
     def cmd_joy_callback(self, msg: Joy):
-        self.twist = self.cmd_move_subscriber
+        #self.twist.linear.x = #axis
         self.setTwistPub.publish(self.twist)
 
 
 def main(args=None):
     rclpy.init(args=args)
-    node = thrustMasterDrive()
+    node = thrustmaster_drive()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
