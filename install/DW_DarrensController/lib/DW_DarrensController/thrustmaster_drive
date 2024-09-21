@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-# EASY-INSTALL-ENTRY-SCRIPT: 'DW-DarrensController==0.0.0','console_scripts','thrustmaster_drive'
+# EASY-INSTALL-ENTRY-SCRIPT: 'DW-DarrensController','console_scripts','thrustmaster_drive'
 import re
 import sys
 
 # for compatibility with easy_install; see #2198
-__requires__ = 'DW-DarrensController==0.0.0'
+__requires__ = 'DW-DarrensController'
 
 try:
     from importlib.metadata import distribution
@@ -30,4 +30,4 @@ globals().setdefault('load_entry_point', importlib_load_entry_point)
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-    sys.exit(load_entry_point('DW-DarrensController==0.0.0', 'console_scripts', 'thrustmaster_drive')())
+    sys.exit(load_entry_point('DW-DarrensController', 'console_scripts', 'thrustmaster_drive')())

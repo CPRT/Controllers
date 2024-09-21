@@ -4,3 +4,6 @@ source;share/DW_DarrensController/hook/pythonpath.sh
 source;share/DW_DarrensController/hook/ament_prefix_path.ps1
 source;share/DW_DarrensController/hook/ament_prefix_path.dsv
 source;share/DW_DarrensController/hook/ament_prefix_path.sh
+source;../../build/DW_DarrensController/share/DW_DarrensController/hook/pythonpath_develop.ps1
+source;../../build/DW_DarrensController/share/DW_DarrensController/hook/pythonpath_develop.dsv
+source;../../build/DW_DarrensController/share/DW_DarrensController/hook/pythonpath_develop.sh
