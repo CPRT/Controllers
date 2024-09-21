@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'keyboard_drive = DW_DarrensController.keyboard_drive:main'
+            'thrustmaster_drive = DW_DarrensController.thrustmaster_drive:main',
         ],
     },
 )

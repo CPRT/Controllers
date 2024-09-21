@@ -1,0 +1,32 @@
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+Removing /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW-DarrensController.egg-link (link to .)
+running egg_info
+writing ../../build/DW_DarrensController/DW_DarrensController.egg-info/PKG-INFO
+writing dependency_links to ../../build/DW_DarrensController/DW_DarrensController.egg-info/dependency_links.txt
+writing entry points to ../../build/DW_DarrensController/DW_DarrensController.egg-info/entry_points.txt
+writing requirements to ../../build/DW_DarrensController/DW_DarrensController.egg-info/requires.txt
+writing top-level names to ../../build/DW_DarrensController/DW_DarrensController.egg-info/top_level.txt
+reading manifest file '../../build/DW_DarrensController/DW_DarrensController.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/DW_DarrensController/DW_DarrensController.egg-info/SOURCES.txt'
+running build
+running build_py
+copying DW_DarrensController/thrustmaster_drive.py -> /home/darren/ros2_ws/build/DW_DarrensController/build/lib/DW_DarrensController
+running install
+running install_lib
+copying /home/darren/ros2_ws/build/DW_DarrensController/build/lib/DW_DarrensController/thrustmaster_drive.py -> /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW_DarrensController
+copying /home/darren/ros2_ws/build/DW_DarrensController/build/lib/DW_DarrensController/keyboard_drive.py -> /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW_DarrensController
+copying /home/darren/ros2_ws/build/DW_DarrensController/build/lib/DW_DarrensController/__init__.py -> /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW_DarrensController
+byte-compiling /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW_DarrensController/thrustmaster_drive.py to thrustmaster_drive.cpython-310.pyc
+byte-compiling /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW_DarrensController/keyboard_drive.py to keyboard_drive.cpython-310.pyc
+byte-compiling /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW_DarrensController/__init__.py to __init__.cpython-310.pyc
+running install_data
+copying resource/DW_DarrensController -> /home/darren/ros2_ws/install/DW_DarrensController/share/ament_index/resource_index/packages
+copying package.xml -> /home/darren/ros2_ws/install/DW_DarrensController/share/DW_DarrensController
+running install_egg_info
+Copying ../../build/DW_DarrensController/DW_DarrensController.egg-info to /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW_DarrensController-0.0.0-py3.10.egg-info
+running install_scripts
+Installing thrustmaster_drive script to /home/darren/ros2_ws/install/DW_DarrensController/lib/DW_DarrensController
+writing list of installed files to '/home/darren/ros2_ws/build/DW_DarrensController/install.log'
