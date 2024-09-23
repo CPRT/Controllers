@@ -1,0 +1,26 @@
+[0.478s] Invoking command in '/home/darren/ros2_ws/build/DW_DarrensController': PYTHONPATH=/home/darren/ros2_ws/build/DW_DarrensController/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/darren/ros2_ws/build/DW_DarrensController/build --no-deps symlink_data
+[0.672s] running develop
+[0.672s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.672s]   warnings.warn(
+[0.782s] running egg_info
+[0.782s] creating DW_DarrensController.egg-info
+[0.782s] writing DW_DarrensController.egg-info/PKG-INFO
+[0.783s] writing dependency_links to DW_DarrensController.egg-info/dependency_links.txt
+[0.783s] writing entry points to DW_DarrensController.egg-info/entry_points.txt
+[0.783s] writing requirements to DW_DarrensController.egg-info/requires.txt
+[0.783s] writing top-level names to DW_DarrensController.egg-info/top_level.txt
+[0.783s] writing manifest file 'DW_DarrensController.egg-info/SOURCES.txt'
+[0.785s] reading manifest file 'DW_DarrensController.egg-info/SOURCES.txt'
+[0.785s] writing manifest file 'DW_DarrensController.egg-info/SOURCES.txt'
+[0.787s] running build_ext
+[0.787s] Creating /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW-DarrensController.egg-link (link to .)
+[0.787s] Installing thrustmaster_drive script to /home/darren/ros2_ws/install/DW_DarrensController/lib/DW_DarrensController
+[0.787s] 
+[0.787s] Installed /home/darren/ros2_ws/build/DW_DarrensController
+[0.788s] running symlink_data
+[0.788s] creating /home/darren/ros2_ws/install/DW_DarrensController/share/ament_index
+[0.788s] creating /home/darren/ros2_ws/install/DW_DarrensController/share/ament_index/resource_index
+[0.788s] creating /home/darren/ros2_ws/install/DW_DarrensController/share/ament_index/resource_index/packages
+[0.788s] symbolically linking /home/darren/ros2_ws/build/DW_DarrensController/resource/DW_DarrensController -> /home/darren/ros2_ws/install/DW_DarrensController/share/ament_index/resource_index/packages
+[0.788s] symbolically linking /home/darren/ros2_ws/build/DW_DarrensController/package.xml -> /home/darren/ros2_ws/install/DW_DarrensController/share/DW_DarrensController
+[0.809s] Invoked command in '/home/darren/ros2_ws/build/DW_DarrensController' returned '0': PYTHONPATH=/home/darren/ros2_ws/build/DW_DarrensController/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/darren/ros2_ws/build/DW_DarrensController/build --no-deps symlink_data
