@@ -15,9 +15,15 @@ class thrustmaster_drive(Node):
         super().__init__("thrustMasterDrive")
         self.twist = Twist()
         self.twist.linear.x = 0.0
+        self.twist.angular.z = 0.0
         self.oldTime = 0.0
-        self.currSpeed = 0.0
-        self.maxSpeed = 3.0     #3 m/s
+        
+        self.currSpeed_X = 0.0
+        self.maxSpeed = 2.0     #2 m/s
+        
+        self.currSpeed_Z = 0.0
+        self.maxTurn = 1.0      #1 rad/s I think
+        
         self.buttonPressed = bool()
         self.buttonPressed = False
         
@@ -38,35 +44,39 @@ class thrustmaster_drive(Node):
         
         self.currTime = msg.header.stamp.sec + (msg.header.stamp.nanosec / 1e9)
         
-        self.twist.angular.z = self.acc #placeholder too see acceleration 
+        self.twist.linear.z = self.acc #placeholder too see acceleration 
         
         #forwards
         if (((self.currTime - self.oldTime) > ACC_REFRESH) and (msg.axes[1] >= 0)):
-            if ((self.currSpeed < msg.axes[1]*self.maxSpeed) and (self.currSpeed + self.acc < msg.axes[1]*self.maxSpeed)):
-                self.currSpeed += self.acc
-                self.twist.linear.x = self.currSpeed
-            elif (self.currSpeed > msg.axes[1]*self.maxSpeed):
+            if ((self.currSpeed_X < msg.axes[1]*self.maxSpeed) and (self.currSpeed_X + self.acc < msg.axes[1]*self.maxSpeed)):
+                self.currSpeed_X += self.acc
+                self.twist.linear.x = self.currSpeed_X
+            elif (self.currSpeed_X > msg.axes[1]*self.maxSpeed):
                 self.twist.linear.x = msg.axes[1] * self.maxSpeed
-                self.currSpeed = msg.axes[1] * self.maxSpeed
+                self.currSpeed_X = msg.axes[1] * self.maxSpeed
             else:
-                self.currSpeed += (msg.axes[1]*self.maxSpeed)-self.currSpeed
-                self.twist.linear.x = self.currSpeed
+                self.currSpeed_X += (msg.axes[1]*self.maxSpeed)-self.currSpeed_X
+                self.twist.linear.x = self.currSpeed_X
                 
+            self.twist.angular.z = msg.axes[0] * self.maxTurn
+            
             self.oldTime = self.currTime
             self.setTwistPub.publish(self.twist)
             
         #reverse
         elif (((self.currTime - self.oldTime) > ACC_REFRESH) and (msg.axes[1] <= 0)):
-            if ((self.currSpeed > msg.axes[1]*self.maxSpeed) and (self.currSpeed + self.acc > msg.axes[1]*self.maxSpeed)):
-                self.currSpeed += self.acc
-                self.twist.linear.x = self.currSpeed
-            elif (self.currSpeed < msg.axes[1]*self.maxSpeed):
+            if ((self.currSpeed_X > msg.axes[1]*self.maxSpeed) and (self.currSpeed_X + self.acc > msg.axes[1]*self.maxSpeed)):
+                self.currSpeed_X += self.acc
+                self.twist.linear.x = self.currSpeed_X
+            elif (self.currSpeed_X < msg.axes[1]*self.maxSpeed):
                 self.twist.linear.x = msg.axes[1] * self.maxSpeed
-                self.currSpeed = msg.axes[1] * self.maxSpeed
+                self.currSpeed_X = msg.axes[1] * self.maxSpeed
             else:
-                self.currSpeed += (msg.axes[1]*self.maxSpeed)-self.currSpeed
-                self.twist.linear.x = self.currSpeed
+                self.currSpeed_X += (msg.axes[1]*self.maxSpeed)-self.currSpeed_X
+                self.twist.linear.x = self.currSpeed_X
                 
+            self.twist.angular.z = msg.axes[0] * self.maxTurn
+            
             self.oldTime = self.currTime
             self.setTwistPub.publish(self.twist)
             
@@ -102,6 +112,7 @@ class thrustmaster_drive(Node):
         if (msg.buttons[13] == 1 and self.buttonPressed == False):
             self.buttonPressed = True
             self.maxSpeed = 0.0
+            self.maxTurn = 0.0
                 
                 
 def main(args=None):
