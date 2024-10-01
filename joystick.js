@@ -55,9 +55,12 @@ class Joystick {
         circle(this.origin, this.radius, '#707070');
         // Draw Handle
         circle(this.pos, this.handleRadius, '#3d3d3d');
+        
     }
     update() {
         this.reposition();
         this.draw();    
+        document.getElementById("x-vel").innerHTML = Math.round(this.pos.x - this.origin.x);
+        document.getElementById("y-vel").innerHTML = Math.round(this.pos.y - this.origin.y)
     }
 }
