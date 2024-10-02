@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin:0
+        }
+        canvas {
+            display: block
+        }
+    </style>
+    <title>webStick</title>
+</head>
+<body>
+    <script type="text/javascript" type="text/javascript">
+
+        var ros_obj = new ROSLIB.Ros({
+            url : 'ws://localhost:9090'
+        })
+
+        ros.on('connection', function() {
+            console.log('Connected to websocket server.');
+        })
+        ros.on('error', function() {
+            console.log('Error');
+        })
+        ros.on('close', function(error) {
+            console.log('Server closed')
+        })
+
+        var cmdVel = new ROSLIB.Topic({
+            ros : ros_obj,
+            name : '/webStick',
+            messageType : 'geometry_msgs/Twist'
+        });
+
+        //var twist = new 
+    </script>
+    <div style="display:flex">
+        x:
+        <p id="x-vel" style="justify-items: center;"></p>
+        y:
+        <p id="y-vel" style="justify-items: center;"></p>
+    </div>
+    <script src="./vector.js"></script>
+    <script src="./joystick.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
