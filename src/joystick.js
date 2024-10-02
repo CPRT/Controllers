@@ -60,8 +60,8 @@ class Joystick {
     update() {
         this.reposition();
         this.draw();    
-        document.getElementById("x-vel").innerHTML = 2*Math.round(this.pos.x - this.origin.x)/(this.pos.x - this.origin.x);
-        document.getElementById("y-vel").innerHTML = 2*Math.round(this.pos.y - this.origin.y)/(this.pos.y - this.origin.y);
+        document.getElementById("x-vel").innerHTML = 2*(this.pos.x - this.origin.x)/(this.radius);
+        document.getElementById("y-vel").innerHTML = -2*(this.pos.y - this.origin.y)/(this.radius);
         //console.log(this.pos.x, this.origin.x, this.pos.y, this.origin.y);
     }
 }
