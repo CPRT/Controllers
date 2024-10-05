@@ -12,8 +12,9 @@ function background() {
 }
 
 let joysticks = [
-    new Joystick(width/2, height/2, width/6, width/12),
-    //new Joystick(width - 80, height - 80, 50, 25)
+    new Joystick(width/2 + 250, height/2, width/6, width/12), //Main
+    new Joystick(width/3 - 80, height/3 + 30, 50, 25),//2nd Up
+    new Joystick(width/3 - 80, height/3 + 140, 50, 25),//2nd down
 ];
 
 setInterval(() => {
