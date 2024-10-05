@@ -11,13 +11,12 @@
             display: block
         }
     </style>
-    <title>webStick</title>
-</head>
-<body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
     <script type="text/javascript" type="text/javascript">
 
         var ros_obj = new ROSLIB.Ros({
-            url : 'ws://localhost:9090'
+            url : 'ws://localhost:8000'
         })
 
         ros.on('connection', function() {
@@ -32,12 +31,33 @@
 
         var cmdVel = new ROSLIB.Topic({
             ros : ros_obj,
-            name : '/webStick',
+            name : '/cmd_vel',
             messageType : 'geometry_msgs/Twist'
         });
 
-        //var twist = new 
+        var twist = new ROSLIB.Message({
+            linear : {
+                x : 0.1,
+                y : 0.2,
+                z : 0.3
+            },
+            angular : {
+                x : -0.1,
+                y : -0.2,
+                z : -0.1
+            }
+
+        });
+        cmdVel.publish(twist);
+        
+
+        
     </script>
+    <title>webStick</title>
+</head>
+<body>
+    
+    <script>console.log(twist);</script>
     <div style="display:flex">
         x:
         <p id="x-vel" style="justify-items: center;"></p>

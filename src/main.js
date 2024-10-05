@@ -24,8 +24,6 @@ setInterval(() => {
         joystick.update();
     }
 
-    
-
-    
-
 }, 1000 / FPS);
+
+//console.log("twist")
