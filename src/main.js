@@ -25,4 +25,4 @@ setInterval(() => {
 
 }, 1000 / FPS);
 
-console.log("twist")
+//console.log("twist")
