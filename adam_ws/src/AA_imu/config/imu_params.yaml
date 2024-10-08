@@ -1,0 +1,17 @@
+imu_node:
+  ros__parameters:
+    ~device_address: 105
+    ~bus_id: 1
+    ~imu_frame: 'imu_link'
+    ~imu_pub_topic: '/imu_msg/raw'
+    ~publish_rate: 60
+
+imu_twist:
+  ros__parameters:
+    ~imu_pub_topic: '/imu_msg/raw'
+    ~twist_pub_topic: '/cmd_vel'
+    ~publish_rate: 20
+    ~max_speed: 10.0
+    ~max_angular_speed: 10.0
+    ~jitter: 0.1
+
