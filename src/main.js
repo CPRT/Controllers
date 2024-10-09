@@ -13,17 +13,19 @@ function background() {
 
 let joysticks = [
     new Joystick(width/2 + 250, height/2, width/6, width/12), //Main
-    new Joystick(width/3 - 80, height/3 + 30, 50, 25),//2nd Up
-    new Joystick(width/3 - 80, height/3 + 140, 50, 25),//2nd down
+    new ArmJoystick(width/2 - 80, height/3 + 140, 50, 25),
+    new ArmJoystick(width/2 - 80, height/3 - 10, 50, 25),
+
 ];
+
+
 
 setInterval(() => {
     background();
 
-    for (let joystick of joysticks) {
+    for (let joystick of joysticks ) {
         joystick.update();
     }
+     
 
-}, 1000 / FPS);
-
-//console.log("twist")
+},1000 / FPS);
