@@ -1,3 +1,0 @@
-<launch>
-    <node pkg="tcp_controller" exec="simpletwist"></node> 
-</launch>

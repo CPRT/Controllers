@@ -1,4 +1,0 @@
-[console_scripts]
-simpletwist = tcp_controller.simple:main
-twistmocker = tcp_controller.mock:main
-
