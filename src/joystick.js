@@ -140,8 +140,8 @@ class ArmJoystick {
         console.log("Joystick Velocities:", xVel, yVel);
 
         // Update the displayed velocity values
-        document.getElementById("x-vel").innerHTML = xVel.toFixed(2);
-        document.getElementById("y-vel").innerHTML = yVel.toFixed(2);
+        document.getElementById("x-velA").innerHTML = xVel.toFixed(2);
+        document.getElementById("y-velA").innerHTML = yVel.toFixed(2);
 
       
         }

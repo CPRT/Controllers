@@ -12,9 +12,9 @@ function background() {
 }
 
 let joysticks = [
-    new Joystick(width/2 + 250, height/2, width/6, width/12), //Main
-    new ArmJoystick(width/2 - 80, height/3 + 140, 50, 25),
-    new ArmJoystick(width/2 - 80, height/3 - 10, 50, 25),
+    new Joystick(width/1.5, height/2, width/6, width/12), //Main
+    new ArmJoystick(width/2.5, height/2, width/8, width/16),
+    //new ArmJoystick(width/2 - 80, height/3 - 10, 50, 25),
 
 ];
 

@@ -13,19 +13,19 @@
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
-    <script type="text/javascript" type="text/javascript">
+    <script type="text/javascript">
 
         var ros_obj = new ROSLIB.Ros({
-            url : 'ws://localhost:8000'
+            url : 'ws://localhost:9090'
         })
 
-        ros.on('connection', function() {
+        ros_obj.on('connection', function() {
             console.log('Connected to websocket server.');
         })
-        ros.on('error', function() {
+        ros_obj.on('error', function() {
             console.log('Error');
         })
-        ros.on('close', function(error) {
+        ros_obj.on('close', function(error) {
             console.log('Server closed')
         })
 
@@ -63,6 +63,10 @@
         <p id="x-vel" style="justify-items: center;"></p>
         y:
         <p id="y-vel" style="justify-items: center;"></p>
+        xA:
+        <p id="x-velA" style="justify-items: center;"></p>
+        yA:
+        <p id="y-velA" style="justify-items: center;"></p>
     </div>
     <script src="./vector.js"></script>
     <script src="./joystick.js"></script>
