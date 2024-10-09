@@ -1,0 +1,4 @@
+twist_limiter:
+  ros__parameters:
+    max_speed: 0.5          # Maximum linear speed
+    max_angular_speed: 0.5  # Maximum angular speed

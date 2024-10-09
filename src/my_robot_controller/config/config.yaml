@@ -1,0 +1,4 @@
+TwistLimiterNode:
+  ros__parameters:
+    max_speed: 0.1          # Maximum linear speed
+    max_angular_speed: 0.1  # Maximum angular speed
