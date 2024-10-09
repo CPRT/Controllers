@@ -1,0 +1,20 @@
+[0.600s] Invoking command in '/home/schoolacc/ros2_ws/src/tcp_controller': PYTHONPATH=/home/schoolacc/ros2_ws/src/build/tcp_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/schoolacc/ros2_ws/src/install/tcp_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/tcp_controller build --build-base /home/schoolacc/ros2_ws/src/build/tcp_controller/build install --record /home/schoolacc/ros2_ws/src/build/tcp_controller/install.log --single-version-externally-managed install_data
+[0.858s] running egg_info
+[0.859s] writing ../build/tcp_controller/tcp_controller.egg-info/PKG-INFO
+[0.859s] writing dependency_links to ../build/tcp_controller/tcp_controller.egg-info/dependency_links.txt
+[0.859s] writing entry points to ../build/tcp_controller/tcp_controller.egg-info/entry_points.txt
+[0.859s] writing requirements to ../build/tcp_controller/tcp_controller.egg-info/requires.txt
+[0.860s] writing top-level names to ../build/tcp_controller/tcp_controller.egg-info/top_level.txt
+[0.861s] reading manifest file '../build/tcp_controller/tcp_controller.egg-info/SOURCES.txt'
+[0.862s] writing manifest file '../build/tcp_controller/tcp_controller.egg-info/SOURCES.txt'
+[0.862s] running build
+[0.862s] running build_py
+[0.863s] running install
+[0.863s] running install_lib
+[0.864s] running install_data
+[0.864s] running install_egg_info
+[0.865s] removing '/home/schoolacc/ros2_ws/src/install/tcp_controller/lib/python3.10/site-packages/tcp_controller-0.0.0-py3.10.egg-info' (and everything under it)
+[0.866s] Copying ../build/tcp_controller/tcp_controller.egg-info to /home/schoolacc/ros2_ws/src/install/tcp_controller/lib/python3.10/site-packages/tcp_controller-0.0.0-py3.10.egg-info
+[0.866s] running install_scripts
+[0.884s] writing list of installed files to '/home/schoolacc/ros2_ws/src/build/tcp_controller/install.log'
+[0.903s] Invoked command in '/home/schoolacc/ros2_ws/src/tcp_controller' returned '0': PYTHONPATH=/home/schoolacc/ros2_ws/src/build/tcp_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/schoolacc/ros2_ws/src/install/tcp_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/tcp_controller build --build-base /home/schoolacc/ros2_ws/src/build/tcp_controller/build install --record /home/schoolacc/ros2_ws/src/build/tcp_controller/install.log --single-version-externally-managed install_data
