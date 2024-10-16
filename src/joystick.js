@@ -16,6 +16,8 @@ class Joystick {
         this.ondrag = false;
         this.touchPos = new Vector2(0, 0);
         this.listener();
+        this.tempX = 10;
+        this.tempY = 10;
     }
     listener() {
 	// Touch Events
@@ -67,7 +69,25 @@ class Joystick {
             xVel = 2 * (this.pos.x - this.origin.x) / this.radius;
             yVel = -2 * (this.pos.y - this.origin.y) / this.radius;
         }
-        console.log("Joystick Velocities:", xVel, yVel);
+        //console.log("Joystick Velocities:", xVel, yVel);
+        
+        let twist = new ROSLIB.Message({
+            linear : {
+                x : yVel,
+            },
+            angular : {
+                z : xVel
+            }
+        });
+
+        if (xVel != this.tempX || yVel != this.tempY)
+            {
+                cmdVel.publish(twist);
+                this.tempX = xVel; 
+                this.tempY = yVel;
+                //console.log(this.tempX, this.tempY, xVel, yVel);
+            }
+        //cmdVel.publish(twist);
 
         // Update the displayed velocity values
         document.getElementById("x-vel").innerHTML = xVel.toFixed(2);
@@ -137,13 +157,12 @@ class ArmJoystick {
             xVel = 2 * (this.pos.x - this.origin.x) / this.radius;
             yVel = -2 * (this.pos.y - this.origin.y) / this.radius;
         }
-        console.log("Joystick Velocities:", xVel, yVel);
+        //console.log("Joystick Velocities:", xVel, yVel);
 
         // Update the displayed velocity values
         document.getElementById("x-velA").innerHTML = xVel.toFixed(2);
         document.getElementById("y-velA").innerHTML = yVel.toFixed(2);
 
-      
         }
 }
       
