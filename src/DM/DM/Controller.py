@@ -87,16 +87,16 @@ class keyboard(Node):
             self.Max_speed = 2.0
         if self.key== '.':
             exit("Code Killed")
-        print(self.forward)
+        #print(self.forward)
         self.out.linear.x = self.linear_speed
         self.out.angular.z = self.angular_speed
         print(self.out)
-        print(self.key)
+        #print(self.key)
         self.setTwistPub.publish(self.out)
 
     def test(self):
         print("test")
-#Base max speed in lunch file
+
 
 def main(args=None):
     rclpy.init(args=args)
