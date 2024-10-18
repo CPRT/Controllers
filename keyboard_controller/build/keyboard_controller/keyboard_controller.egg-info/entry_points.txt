@@ -1,0 +1,4 @@
+[console_scripts]
+controller = keyboard_controller.controller:main
+twistPub = keyboard_controller.twistPub:main
+
