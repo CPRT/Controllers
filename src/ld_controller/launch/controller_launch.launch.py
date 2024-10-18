@@ -23,6 +23,10 @@ def generate_launch_description():
         launch_ros.actions.Node(
             package='joy',
             executable='joy_node',
-            name='joystick'),
+            name='joystick',
+            parameters=[
+                {"autorepeat_rate": 1000.0},
+            ]
+            ),
     ]
     )

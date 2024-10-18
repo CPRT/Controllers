@@ -4,7 +4,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
 import pyautogui as pgui
-import asyncio
+pgui.FAILSAFE = False
 
 #def merge_coords(cur_x: int, cur_y: int) -> UInt32:
 #    """
@@ -24,10 +24,7 @@ import asyncio
 
 
 async def mouse_move(x, y):
-    try:
-        pgui.move(x, y, 0.1)
-    except pgui.FailSafeException:
-        return None
+    pgui.moveTo(x, y, 0)
 
 async def command(cmd):
     if not(cmd == 0):
@@ -52,20 +49,20 @@ class control_subscriber(Node):
             Twist, "commands", self.execute_cmd, 1)
 
     async def execute_cmd(self, msg: Twist):
-        rel_move_x = msg.linear.x
-        rel_move_y = msg.linear.y
+        x = msg.linear.x
+        y = msg.linear.y
         scroll = msg.angular.y
         cmd = msg.linear.z
 
-        message = '\nReceived:'
-        message += f'\n\t linear x: {rel_move_y}'
-        message += f'\n\t linear y: {rel_move_x}'
-        message += f'\n\t linear z: {cmd}'
-        message += f'\n\t angular y: {scroll}'
-        message += f'\n\t Screen x, y: {pgui.size()}'
-        self.get_logger().info(message)
+        #message = '\nReceived:'
+        #message += f'\n\t linear x: {rel_move_x}'
+        #message += f'\n\t linear y: {rel_move_y}'
+        #message += f'\n\t linear z: {cmd}'
+        #message += f'\n\t angular y: {scroll}'
+        #message += f'\n\t Screen x, y: {pgui.size()}'
+        #self.get_logger().info(message)
 
-        await mouse_move(rel_move_x, rel_move_y)
+        await mouse_move(x, y)
         await command(cmd)
         await scrolling(scroll)
 
