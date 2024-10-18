@@ -50,20 +50,10 @@ class control_publisher(Node):
         new_x = self.cur_x + joystick_to_mouse(msg.axes[0], self.size, self.throttle)
         new_y = self.cur_y + joystick_to_mouse(msg.axes[1], self.size, self.throttle)
 
-        #message = '\nReceived:'
-        #message += f'\n\t old x: {self.cur_x}'
-        #message += f'\n\t old y: {self.cur_y}'
-        #message += f'\n\t new x: {new_x}'
-        #message += f'\n\t new y: {new_y}'
-        #message += f'\n\t Screen x, y: {pgui.size()}'
-        #self.get_logger().info(message)
-
         if pgui.onScreen(new_x, new_y):
             # move mouse
             self.cur_x = new_x
             self.cur_y = new_y
-            #self.twist.linear.x += joystick_to_mouse(msg.axes[0], self.size)
-            #self.twist.linear.y += joystick_to_mouse(msg.axes[1], self.size)
 
         self.twist.linear.z = 0.0
         if msg.buttons[6] == 1 and msg.buttons[1] == 1:
@@ -81,19 +71,6 @@ class control_publisher(Node):
 
         # scrolling
         self.twist.angular.y = - joystick_to_mouse(msg.axes[3], self.size, self.throttle)
-
-    # Things that mouse needs to be able to do:
-        # - move (linear.x and .y, left joystick)
-        # - left click (linear.z = 1, press A)
-        # - right click (linear.z = 3, press B)
-        # - drag and drop (not implemented)
-        # - scroll up and down (angular.x and .y, right joystick up and down)
-    
-    # Things that mouse could try to be able to do:
-        # - zoom in and out
-        # - middle click (linear.z = 4, press X)
-        # - double click (linear.z = 2, press right paddle + A)
-        # - diff sticks for different refinement of controls
 
 def main(args=None):
     rclpy.init(args=args)

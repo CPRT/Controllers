@@ -4,24 +4,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
 import pyautogui as pgui
-pgui.FAILSAFE = False
-
-#def merge_coords(cur_x: int, cur_y: int) -> UInt32:
-#    """
-#    Takes the mouse's position on the screen in x and y
-#    coordinates and converts them to a number, which is
-#    composed of the coordinates binary. The first 16 bits
-#    (left most ones) are the x coordinate and the last 16
-#    bits are the y coordinate.
-#    """
-
-#    if cur_x <= 65537 or cur_y <= 65537:
-#        pos_x = f'{cur_x:016b}'
-#        pos_y = f'{cur_y:016b}'
-#        return int(pos_x + pos_y, 2)
-#    else:
-#        return 0
-
+pgui.FAILSAFE = False # Turn failsafe off to avoid getting stuck in corners
 
 async def mouse_move(x, y):
     pgui.moveTo(x, y, 0)
@@ -53,14 +36,6 @@ class control_subscriber(Node):
         y = msg.linear.y
         scroll = msg.angular.y
         cmd = msg.linear.z
-
-        #message = '\nReceived:'
-        #message += f'\n\t linear x: {rel_move_x}'
-        #message += f'\n\t linear y: {rel_move_y}'
-        #message += f'\n\t linear z: {cmd}'
-        #message += f'\n\t angular y: {scroll}'
-        #message += f'\n\t Screen x, y: {pgui.size()}'
-        #self.get_logger().info(message)
 
         await mouse_move(x, y)
         await command(cmd)
