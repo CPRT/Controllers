@@ -27,7 +27,7 @@ class thrustmaster_drive(Node):
         self.buttonPressed = bool()
         self.buttonPressed = False
         
-        self.setTwistPub = self.create_publisher(Twist, "TM_Pub", 1)
+        self.setTwistPub = self.create_publisher(Twist, "/drive/cmd_vel", 1)
         self.cmd_move_subscriber = self.create_subscription(Joy, "joy", self.joy_callback, 10)
 
             
@@ -44,7 +44,7 @@ class thrustmaster_drive(Node):
         
         self.currTime = msg.header.stamp.sec + (msg.header.stamp.nanosec / 1e9)
         
-        self.twist.linear.z = self.acc #placeholder too see acceleration 
+        #self.twist.linear.z = msg.axes[1]
         
         #forwards
         if (((self.currTime - self.oldTime) > ACC_REFRESH) and (msg.axes[1] >= 0)):
@@ -61,7 +61,7 @@ class thrustmaster_drive(Node):
             self.twist.angular.z = msg.axes[0] * self.maxTurn
             
             self.oldTime = self.currTime
-            self.setTwistPub.publish(self.twist)
+            
             
         #reverse
         elif (((self.currTime - self.oldTime) > ACC_REFRESH) and (msg.axes[1] <= 0)):
@@ -78,7 +78,7 @@ class thrustmaster_drive(Node):
             self.twist.angular.z = msg.axes[0] * self.maxTurn
             
             self.oldTime = self.currTime
-            self.setTwistPub.publish(self.twist)
+        
             
         # THRUSTMASTER BUTTON SCHEME
         #------------------------------------
@@ -113,6 +113,8 @@ class thrustmaster_drive(Node):
             self.buttonPressed = True
             self.maxSpeed = 0.0
             self.maxTurn = 0.0
+            
+        self.setTwistPub.publish(self.twist)
                 
                 
 def main(args=None):

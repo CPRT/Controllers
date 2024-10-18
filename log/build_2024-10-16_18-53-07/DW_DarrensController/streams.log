@@ -1,0 +1,19 @@
+[0.655s] Invoking command in '/home/darren/ros2_ws/build/DW_DarrensController': PYTHONPATH=/home/darren/ros2_ws/build/DW_DarrensController/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/darren/ros2_ws/build/DW_DarrensController/build --no-deps symlink_data
+[0.892s] running develop
+[0.892s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.892s]   warnings.warn(
+[1.038s] running egg_info
+[1.038s] writing DW_DarrensController.egg-info/PKG-INFO
+[1.038s] writing dependency_links to DW_DarrensController.egg-info/dependency_links.txt
+[1.038s] writing entry points to DW_DarrensController.egg-info/entry_points.txt
+[1.038s] writing requirements to DW_DarrensController.egg-info/requires.txt
+[1.039s] writing top-level names to DW_DarrensController.egg-info/top_level.txt
+[1.042s] reading manifest file 'DW_DarrensController.egg-info/SOURCES.txt'
+[1.043s] writing manifest file 'DW_DarrensController.egg-info/SOURCES.txt'
+[1.045s] running build_ext
+[1.045s] Creating /home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages/DW-DarrensController.egg-link (link to .)
+[1.046s] Installing thrustmaster_drive script to /home/darren/ros2_ws/install/DW_DarrensController/lib/DW_DarrensController
+[1.046s] 
+[1.047s] Installed /home/darren/ros2_ws/build/DW_DarrensController
+[1.047s] running symlink_data
+[1.072s] Invoked command in '/home/darren/ros2_ws/build/DW_DarrensController' returned '0': PYTHONPATH=/home/darren/ros2_ws/build/DW_DarrensController/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darren/ros2_ws/install/DW_DarrensController/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/darren/ros2_ws/build/DW_DarrensController/build --no-deps symlink_data
