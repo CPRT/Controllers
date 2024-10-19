@@ -80,13 +80,13 @@ class Joystick {
             }
         });
 
-        if (xVel != this.tempX || yVel != this.tempY)
-            {
-                cmdVel.publish(twist);
-                this.tempX = xVel; 
-                this.tempY = yVel;
+        //if (xVel != this.tempX || yVel != this.tempY)
+            //{
+        cmdVel.publish(twist);
+                //this.tempX = xVel; 
+                //this.tempY = yVel;
                 //console.log(this.tempX, this.tempY, xVel, yVel);
-            }
+            //}
         //cmdVel.publish(twist);
 
         // Update the displayed velocity values

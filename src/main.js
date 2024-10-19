@@ -35,7 +35,7 @@ ros_obj.on('close', function(error) {
 
 var cmdVel = new ROSLIB.Topic({
     ros : ros_obj,
-    name : '/cmd_vel',
+    name : '/drive/cmd_vel',
     messageType : 'geometry_msgs/Twist'
 });
 
