@@ -48,25 +48,25 @@ class control_publisher(Node):
     def pub(self):
         self.twist.linear.x = float(self.cur_x)
         self.twist.linear.y = float(self.cur_y)
-        self.setTwistPub.publish(self.twist)
+        #self.setTwistPub.publish(self.twist)
 
     def cmd_joy_callback(self, msg: Joy):
 
-        if msg.buttons[0] == 1:
+        if msg.buttons[3] == 1:
             self.twist_rover.linear.x = 0.0
             self.twist_rover.angular.z = 0.0
             self.estop.data = True
             self.setTwistRover.publish(self.twist_rover)
             self.set_estop.publish(self.estop)
-        elif msg.buttons[1] == 1:
+        elif msg.buttons[4] == 1:
             self.estop.data = False
             self.twist_rover.linear.x = 0.0
             self.twist_rover.angular.z = 0.0
             self.setTwistRover.publish(self.twist_rover)
             self.set_estop.publish(self.estop)
 
-        self.twist.linear.x = msg.axes[1] * 2
-        self.twist.angular.z = msg.axes[0] * 2
+        self.twist_rover.linear.x = msg.axes[1] * 2
+        self.twist_rover.angular.z = msg.axes[0] * 2
         self.setTwistRover.publish(self.twist_rover)
 
 
