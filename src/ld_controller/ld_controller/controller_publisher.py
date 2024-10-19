@@ -3,6 +3,7 @@ from rclpy.node import Node
 
 from sensor_msgs.msg import Joy
 from geometry_msgs.msg import Twist
+from std_msgs.msg import Bool
 
 import pyautogui as pgui
 
@@ -16,6 +17,10 @@ def joystick_to_mouse(value, size, throttle, sensitivity = 1):
 class control_publisher(Node):
     def __init__(self):
         super().__init__("control_publisher")
+        self.twist_rover = Twist()
+        self.estop = Bool()
+        self.estop.data = False
+
         self.twist = Twist()
         self.cur_x, self.cur_y = pgui.position()
         self.size_x, self.size_y = pgui.size()
@@ -28,6 +33,10 @@ class control_publisher(Node):
 
         self.setTwistPub = self.create_publisher(
             Twist, "commands", 1)
+        self.setTwistRover = self.create_publisher(
+            Twist, "/drive/cmd_vel", 1)
+        self.set_estop = self.create_publisher(
+            Bool, "/drive/estop", 1)
         self.cmd_move_subscribere = self.create_subscription(
             Joy, "/joy", self.cmd_joy_callback, 10)
         
@@ -42,6 +51,26 @@ class control_publisher(Node):
         self.setTwistPub.publish(self.twist)
 
     def cmd_joy_callback(self, msg: Joy):
+
+        if msg.buttons[0] == 1:
+            self.twist_rover.linear.x = 0.0
+            self.twist_rover.angular.z = 0.0
+            self.estop.data = True
+            self.setTwistRover.publish(self.twist_rover)
+            self.set_estop.publish(self.estop)
+        elif msg.buttons[1] == 1:
+            self.estop.data = False
+            self.twist_rover.linear.x = 0.0
+            self.twist_rover.angular.z = 0.0
+            self.setTwistRover.publish(self.twist_rover)
+            self.set_estop.publish(self.estop)
+
+        self.twist.linear.x = msg.axes[1] * 2
+        self.twist.angular.z = msg.axes[0] * 2
+        self.setTwistRover.publish(self.twist_rover)
+
+
+
         if msg.buttons[7] == 1:
             self.throttle = True
         else:

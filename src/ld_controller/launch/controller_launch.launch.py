@@ -25,7 +25,7 @@ def generate_launch_description():
             executable='joy_node',
             name='joystick',
             parameters=[
-                {"autorepeat_rate": 1000.0},
+                {"autorepeat_rate": 20.0},
             ]
             ),
     ]
